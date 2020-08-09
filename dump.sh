@@ -1,4 +1,5 @@
-# Dumps given directory into this shell file directory 
+# Dumps given directory into this shell file directory
+# if given single argument "-g" then it pushes to github
 # By Bryan Laygond @laygond
 
 if [[ $# -eq 2 ]]
@@ -11,12 +12,21 @@ then
     #if source directory exist and 'new name folder' is not repeated 
     then
         cp -r $1 $DIR/$2
+        NAME=$2
         echo "[INFO] Transfer complete"
     else
         echo "[ERROR] Error in arguments given"
         echo "        First argument  : location of source folder"
         echo "        Second argument : new name of source folder" 
     fi    
+elif [[$# -eq 1 && $1="-g"]]
+then
+    #Push to github
+    cd $DIR
+    git add -A
+    git commit -m ":sparkles: $NAME Added"
+    echo "[INFO] Pushing to GitHub..."
+    git push
 else
     echo "[ERROR] Error in arguments given"
     echo "        First argument  : location of source folder"
