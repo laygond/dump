@@ -12,21 +12,21 @@ then
     #if source directory exist and 'new name folder' is not repeated 
     then
         cp -r $1 $DIR/$2
-        NAME=$2
         echo "[INFO] Transfer complete"
     else
         echo "[ERROR] Error in arguments given"
         echo "        First argument  : location of source folder"
         echo "        Second argument : new name of source folder" 
     fi    
-elif [[$# -eq 1 && $1="-g"]]
-then
-    #Push to github
-    cd $DIR
-    git add -A
-    git commit -m ":sparkles: $NAME Added"
-    echo "[INFO] Pushing to GitHub..."
-    git push
+# elif [[$# -eq 1 ]]
+# then
+#     echo $#
+#     # #Push to github
+#     # cd $DIR
+#     # git add -A
+#     # git commit -m ":sparkles: New Directory Added"
+#     # echo "[INFO] Pushing to GitHub..."
+#     # git push
 else
     echo "[ERROR] Error in arguments given"
     echo "        First argument  : location of source folder"
