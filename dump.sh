@@ -2,6 +2,11 @@
 # if given single argument "-g" then it pushes to github
 # By Bryan Laygond @laygond
 
+# Sets all your Github Info
+git config --global user.email "laygond_bryan@hotmail.com"
+git config --global user.name "laygond"
+echo "Your Git credentials are set Lord Laygond"
+
 if [[ $# -eq 2 ]]
 then
     # Get Location of this running shell file
